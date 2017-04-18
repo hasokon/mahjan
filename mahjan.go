@@ -118,7 +118,12 @@ func kiriage(score uint) uint {
 	return score
 }
 
-func (this *Mahjan) Score(hu, han uint, p Person, tsumo bool) string {
+func (this *Mahjan) Score(hu, han uint, p Person, tsumo bool) string{
+
+	if (hu % 10 != 0 && hu != 25) || (hu > 110 || hu < 20){
+		return fmt.Sprintf("%d符は存在しないぞ", hu)
+	}
+
 	var tmp uint = 4
 	if p == Parent {
 		tmp = 6
